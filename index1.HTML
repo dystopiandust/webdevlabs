@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head >
+    <h1 style=" font-family: 'Times New Roman';margin-left: 15px;">Week 2 — HTML5</h1>
+    <h2  style="font-family: 'Times New Roman'; margin-top: -5px;margin-left: 15px;"><b>Full Teaching Content — Lectures 4–6, Tutorial, Lab</b></h2>
+    <p style="font-family: 'Times New Roman'; font-size: 15px; margin-top: -5px;margin-left: 15px;">BO CDA 208 — Web Development and App Design.HTML fundamentals → semantic HTML & accessibility → forms & modern HTML, closing with the semester-project tutorial and the multi-page lab.</p>
+    <hr>
+<body>
+    <div style="  color: #0a4ba0; font-family: 'Times New Roman'; font-size: 13px;margin-left: 15px;">
+        <h1>Lecture 4 — HTML Fundamentals 
+        
+        <h1 style="font-size: 20px ; color: #165ab4; font-family: 'Times New Roman'; ;margin-left: 0%;margin-top: -10px;">A. Introduction to HTML</h1>
+
+        </h1>
+    </div>
+<ul style="font-family: 'Times New Roman'; font-size: 13px;">
+<li><b>What is HTML?</b> HyperText Markup Language — a markup language, not a programming language. It describes structure and content, not logic.</li>
+<li><b>Role of HTML in Web development</b> — HTML is the structure/content layer only. It says nothing about color, layout, or interactivity — that's CSS's and JavaScript's job, coming in later weeks.</li>
+<li><b>HTML vs. CSS vs. JavaScript</b> — HTML = structure, CSS = presentation, JS = behavior. Keep this three-way split visible all semester; almost every later topic is “which of these three am I touching right now.”</li>
+<li><b>HTML as a markup language</b> — a markup language tells a browser how to present or organize information; a programming language tells a computer how to compute something. HTML has no variables, no loops, no logic.</li>
+<li><b>HTML document vs. Web page</b> — the .html file is the document (what you edit); the “web page” is what the browser renders from it. Same edit/preview split introduced in Week 1's Setup discussion.</li>
+<li><b>HTML5 and the evolution of HTML</b> — HTML (1991) → HTML 4.01 (1999) → XHTML (a stricter, XML-based dead end) → HTML5 (2014), which added semantic elements, native audio/video, canvas, and new input types. HTML is now a “living standard” maintained by WHATWG — continuously updated rather than released in discrete numbered versions.</li>
+</ul>
+    <h1 style="font-size: 20px ; color: #185bb2; font-family: 'Times New Roman'; ;margin-left: 15px;;">B. Basic HTML Document Structure</h1>
+    <div  style="font-family: 'Times New Roman'; font-size: 9px; margin-left: 25px; border: 1px solid black; width: 400px;  background-color: #f0f0f0; padding: 10px;">
+        <pre><code>&lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;page&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;!-- page content goes here --&lt;/h1&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;</code></pre>  
+    </div>
+<table style=" width: 421px; border-collapse: collapse; color: #000000; margin-left: 25px; font-family: 'Times New Roman'; font-size: 13px;">
+    <tr>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">Element</th>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">Role</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">&lt;!DOCTYPE html&gt;</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Required preamble; ensures the browser renders in standards mode.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">&lt;html&gt;</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">The root element — wraps everything; lang sets the page's primary language.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">&lt;head&gt;</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Container for metadata — nothing here is shown directly to visitors.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">&lt;title&gt;</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Text shown in the browser tab and used when bookmarking.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">&lt;body&gt;</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Everything visitors actually see.</td>
+    </tr>
+</table>
+        <ul style="font-family: 'Times New Roman'; font-size: 13px;">
+            <li><b>Comments</b> — <!-- text --> is never rendered; it's for developers reading the source only. Not truly hidden — visible via View Page Source.</li>
+    </ul>
+    <div style="  color: #1155af; font-family: 'Times New Roman'; font-size: 13px;margin-left: 15px;">
+    <h1 style="font-size: 20px;">C. HTML Elements</h1>
+    </div>
+<ul style=" font-size: 13px; font-family: 'Times New Roman';">
+<li><b>What is an element?</b> A start tag, content, and end tag together — the basic building block of a page.</li>
+<li><b>Opening and closing tags</b> — <code>&lt;p&gt;</code> opens, <code>&lt;/p&gt;</code> closes; forgetting the closing tag is the single most common beginner error</li>
+<li><b>Empty/void elements</b> — elements with no content to wrap, so no closing tag: <code>&lt;br&gt;</code>,<code>&lt;hr&gt;</code>,<code>&lt;img&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;meta&gt;</code>, <code>&lt;link&gt;</code>, 
+<li><b>Nested elements</b> — elements placed inside other elements; nesting must not cross (close tags in the reverse order you opened them).</li>
+<li><b>Parent and child elements</b> — the containing element is the parent, the contained one is the child. This vocabulary will resurface constantly once JavaScript starts walking the DOM in Week 6.</li>
+<li><b>Block-level vs. inline elements</b> — conceptual introduction only: block elements (p, div, h1–h6) start on a new line and take the full available width; inline elements (span, a, strong) flow within a line of text. Full layout consequences are a CSS topic, Weeks 3–4 — here, just recognize the two categories.</li>
+</ul>
+
+    <div style="  color: #1763c6; font-family: 'Times New Roman'; font-size: 13px;margin-left: 15px;">
+    <h1 style="font-size: 20px;">D. HTML Attributes</h1>
+    </div>
+    <ul style=" font-size: 13px; font-family: 'Times New Roman';">
+    <li><b>What is an attribute?</b> A name="value" pair inside a start tag that configures or describes the element.</li>
+    <li><b>Global attributes</b> — available on virtually any element: id, class, title, style, data-*, lang, hidden.</li>
+<table style=" width: 600px; border-collapse: collapse; color: #000000; margin-left: -25px; font-family: 'Times New Roman'; font-size: 13px;">
+    <tr>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">Attribute</th>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">Use</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">id</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">A unique identifier for one specific element on the page — used for in-page links, CSS, and JavaScript targeting.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">class</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">A reusable label; many elements can share the same class, and one element can carry several classes.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">title</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Tooltip text shown on mouse-over (covered already for images — works the same way on any element).</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">style</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">Inline CSS — brief mention only. Real styling is external stylesheets, starting Week 3; treat inline style as a last resort, not a habit.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">data-*</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Custom data attributes for storing extra information JavaScript can read later, e.g. data-user-id="42".</td>
+    </tr>
+</table>
+<div style="  color: #1e6cd3; font-family: 'Times New Roman'; font-size: 13px;margin-left: -35px ; ">
+    <h1 style="font-size: 20px;">E. Text Content</h1>
+    </div>
+    <p style="font-family: 'Times New Roman'; font-size: 13px; margin-left: -35px ; margin-top: 0px ;">Headings (<code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code>), paragraphs (<code>&lt;p&gt;</code>), line breaks (<code>&lt;br&gt;</code>), and horizontal rules (<code>&lt;hr&gt;</code>) were introduced in the Beginning HTML material — recap briefly, then focus class time on the semantic point below. </p>
+
+<ul style=" font-size: 13px; font-family: 'Times New Roman';margin-left: -35px ; ">
+<li><code>&lt;strong&gt;</code> vs. <code>&lt;em&gt;</code> over <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code>: <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code> signal genuine importance/emphasis to screen readers and search engines; <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> are purely visual with no such signal.</li>
+
+<style >
+    .vertical {
+        border-left: 2px solid black;
+        height: 10px;
+     }
+    </style>
+ 
+<div style="margin-top: 10px ;" class= "vertical"></div><p style="font-family: 'Times New Roman'; font-weight: bold; font-style: italic; font-size: 13px; margin-left: 10px ; margin-top: -30px ;"> Why semantic text elements are preferred: the visual result can look identical, but only the semantic version tells assistive technology and machines that the meaning matters, not just the appearance.</p>
+
+<div style="  color: #155ab4; font-family: 'Times New Roman'; font-size: 13px;margin-left: -35px ; ">
+    <h1 style="font-size: 20px;">F. Hyperlinks</h1>
+    </div>
+    <ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -35px ; margin-top: -5px ;">
+    <li><b><code>&lt;a&gt;</code>element</b> — links pages, text, or images to another destination via href.</li>
+</ul>
+<div style="font-family: 'Consolas'; font-size: 9px; border: 1px solid black; width: 400px;  background-color: #f0f0f0; padding: 2px;  margin-left  : -35px ;">
+        <p><code>&lt;a href="about.html"&gt;</code>About</a&gt;</code></p> 
+        <p><code>&lt;a href="https://example.com"&gt;</code></a>External site</a&gt;</code></p> 
+        <p><code>&lt;a href="#section2"&gt;</code></a>Jump to Section 2</a&gt;</code></p> 
+        <p><code>&lt;a href="mailto:prof@example.com"&gt;</code></a>Email</a&gt;</code></p>  
+        <p><code>&lt;a href="tel:+911234567890"&gt;</code></a>Call</a&gt;</code></p>
+</div>
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -35px ; ">
+    <li><b>Absolute URLs</b> — the full address, including https://; needed for linking off-site.</li>
+    <li><b>Relative URLs</b> — a path relative to the current file; used for linking between pages of the same site (see Week 1's File Paths rules).</li>   
+    <li><b>Linking to sections within a page</b> — give the target element an id, then link to it with href="#that-id".</li>
+    <li><b>Opening links in a new tab</b> — target="_blank".</li>
+    <li><b>Mailto: and Tel: links</b> — open the user's email client or phone dialer directly.</li>
+</ul>
+
+<style >
+    .vertical {
+        border-left: 2px solid black;
+        height: 40px ;
+     }
+    </style>
+ 
+<div style="margin-top: 10px ;" class= "vertical"></div><p style="font-family: 'Times New Roman'; font-weight: bold; font-style: italic; font-size: 13px; margin-left: 10px ; margin-top: -32px ;">Security consideration: target="_blank" without rel="noopener noreferrer" lets the new tab's page control the original tab via window.opener — a known phishing vector called reverse tabnabbing. Always pair the two.</p>
+
+<div style="  color: #1a59ab; font-family: 'Times New Roman'; font-size: 13px;margin-left: -35px ; ">
+    <h1 style="font-size: 20px;">G. Images</h1>
+    </div>
+    <p style="font-family: 'Times New Roman'; font-size: 13px; margin-left: -35px ; margin-top: 0px ;"><code>&lt;img&gt;</code>, src, alt, width/height, relative vs. absolute paths, and images-as-links were covered in the Beginning HTML material. Recap the pattern once, then restate the two distinct reasons alt matters: screen readers read it aloud, and it displays if the image fails to load. </p>
+
+<div style="  color: #155dbc; font-family: 'Times New Roman'; font-size: 13px;margin-left: -35px ; ">
+    <h1 style="font-size: 20px  ;">H. Lists</h1>
+    </div>
+    <p style="font-family: 'Times New Roman'; font-size: 13px; margin-left: -35px ; margin-top: 0px ;"><code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>, and nesting were covered previously. New this lecture: </p>
+
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -35px ; ">
+    <li><b>Description lists </b>— <code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code> (term), <code>&lt;dd&gt;</code> (definition) — for term/definition pairs, like a glossary.</li>
+</ul>
+<div style="font-family: 'Consolas'; font-size: 9px; border: 1px solid black; width: 400px;  background-color: #f0f0f0; padding: 2px;  margin-left  : -35px ;">
+        <pre><code> &lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+ &lt;/dl&gt;</code></pre>
+</div>
+<div style="  color: #1b66c7; font-family: 'Times New Roman'; font-size: 13px;margin-left: -35px ; ">
+    <h1 style="font-size: 20px  ;">I. Tables</h1>
+</div>
+<p style="font-family: 'Times New Roman'; font-size: 13px; margin-left: -35px ; margin-top: 0px ;"><code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code>, and <code>&lt;th&gt;</code>  were covered previously. New this lecture:</p>
+
+<table style=" width: 600px; border-collapse: collapse; color: #000000; margin-left: -25px; font-family: 'Times New Roman'; font-size: 13px;">
+    <tr>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: center;padding: 12px 10px;border: 1px solid #000000;">Element / Attribute</th>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: center;padding: 12px 10px;border: 1px solid #000000;">Purpose</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;"><code>&lt;thread&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tbody&gt;</code>,</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Group header rows, body rows, and footer rows — lets browsers and assistive tech distinguish the table's regions.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">colspan</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">Merges a cell across multiple columns.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">rowspan</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Merges a cell across multiple rows.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">scope (basic accessibility)</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">On a <code>&lt;th&gt;</code>, declares whether it heads a column or a row, so screen readers can announce the right header for each data cell.</td>
+    </tr>
+</table>
+<p style="margin-left: -25px; text-align: justify; font-family: 'Times New Roman'; font-size: 13px;">End-of-lecture target: students should be able to construct a complete basic HTML document containing text → links → images → lists → tables, unaided.</p>
+
+<div style="  color: #1258b4; font-family: 'Times New Roman'; font-size: 16px;margin-left: -35px ; ">
+    <h1>Lecture 5 — Semantic HTML & Accessibility</h1>
+    <h1 style="font-size: 20px ; color: #1c61bc; font-family: 'Times New Roman';  margin-top: -10px ;"> A. Why Semantic HTML? </h1>  
+    </div>
+    <ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -35px ; ">
+        <li><b>Semantic HTML  </b> — = elements whose tag name describes their own meaning ( <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code>) rather than saying nothing about their content ( <code>&lt;div&gt;</code>,<code>&lt;span&gt;</code>)</li>
+    </ul>
+<caption style="font-family: 'Times New Roman'; font-size: 13px; margin-left: -20px ; ">Benefits, worth naming individually rather than as one vague <b>“it's good practice” </b> claim: </caption>
+
+<table style=" width: 600px; border-collapse: collapse; color: #000000; margin-left: -25px; font-family: 'Times New Roman'; font-size: 13px;">
+    <tr>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">Benefits for…</th>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">What semantic HTML gives them</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Browsers</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Can apply sensible default behavior and rendering without guessing.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Developers</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">Code that documents its own structure — easier to read six months later.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Accessibility</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Screen readers can announce regions (“navigation,” “main content”) instead of a flat wall of divs.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Search engines</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">Can identify the actual article content vs. boilerplate navigation/ads, which affects indexing.</td>
+    </tr>
+</table>
+<h1 style="font-size: 20px ; color: #1c549e; font-family: 'Times New Roman'; margin-left: -35px;"> B. Semantic Page Structure</h1> 
+
+
+<table style=" width: 600px; border-collapse: collapse; color: #000000; margin-left: -25px; font-family: 'Times New Roman'; font-size: 13px;">
+    <tr>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">Element</th>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">Represents</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;"><code>&lt;header&gt;</code></td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Introductory content or navigation aids for its nearest sectioning ancestor.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;"><code>&lt;nav&gt;</code></td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">A block of navigation links.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;"><code>&lt;main&gt;</code></td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">The dominant, unique content of the document — only one per page.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;"><code>&lt;section&gt;</code></td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">A generic, thematically grouped section of content, usually with its own heading.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;"><code>&lt;article&gt;</code></td>  
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">A self-contained piece of content — a blog post, a news story.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;"><code>&lt;aside&gt;</code></td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">Content tangentially related to the main content — a sidebar, a pull quote.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;"><code>&lt;footer&gt;</code></td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">Footer content for its nearest sectioning ancestor.</td>
+</table>
+
+<h1 style="font-size: 20px ; color: #1d60b8; font-family: 'Times New Roman'; margin-left: -35px;"> C. Understanding Their Roles</h1>
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -35px ; ">
+    <li><b>Page header vs. section header </b> — <code>&lt;header&gt;</code> is not a once-per-page element. A page can have one <code>&lt;header&gt;</code> at the top and another <code>&lt;header&gt;</code> inside each <code>&lt;article&gt;</code>, each scoped to its nearest sectioning ancestor.</li>
+    <li><b>Navigation areas </b> — not every group of links is a <code>&lt;nav&gt;</code> — reserve it for major navigation blocks (site nav, table of contents), not every link cluster.</li>   
+    <li><b>Main content </b> — exactly one <code>&lt;main&gt;</code> per page, excluding anything repeated across pages (nav, sidebars, footers). </li>
+    <li><b>Independent articles </b> — the test for <code>&lt;article&gt;</code>: would this content still make sense if syndicated elsewhere on its own (an RSS feed, a different site)? If yes, it's an article. </li>
+    <li><b>Sections within a page </b> —  <code>&lt;section&gt;</code> groups thematically related content that isn't independently distributable — usually has its own heading. </li>
+    <li><b>Complementary content </b> — <code>&lt;aside&gt;</code> for content related to but separable from the main flow — remove it and the main content still stands alone.</li>
+    <li><b>Footer content  </b> — like header, can appear once per page and also once per article/section.  </li>
+</ul>
+
+<h1 style="font-size: 20px ; color: #2970cd; font-family: 'Times New Roman'; margin-left: -35px;"> D. Building a Semantic Page</h1> 
+<p style="font-family: 'Times New Roman'; font-size: 13px; margin-left: -35px ; margin-top: 0px ;">Typical page hierarchy :</p>
+<br>
+ <div style="border: 1px solid black; width: 600px;  background-color: #f0f0f0; margin-top: -25px; margin-left: -25px;">
+    <p style="margin-left: 30px ;"><code>&lt;html&gt;</code></p>
+    <p style="margin-left: 50px; margin-top: -15px ;">└── body </p>
+      <p style="margin-left: 80px; margin-top: -15px ;">├── header </p>
+      <p style="margin-left: 80px; margin-top: -13px ;">├── nav</p>
+      <p style="margin-left: 80px; margin-top: -13px ;">├── main</p>
+      <p style="margin-left: 80px; margin-top: -13px ;">│ <p style="margin-left: 120px; margin-top: -30px ;"> ├── section</p></p>
+      <p style="margin-left: 80px; margin-top: -13px ;">│</p><p style="margin-left: 120px; margin-top: -29px ;">│   <p style="margin-left: 165px; margin-top: -30px ;">└── article</p> </p>
+      <p style="margin-left: 80px; margin-top: -13px ;">│</p><p style="margin-left: 120px; margin-top: -29px ;">└── aside</p>
+      <p style="margin-left: 80px; margin-top: -13px ;">└── footer</p>
+    </div>  
+
+<style >
+    .vertical {
+        border-left: 2px solid black;
+        height: 40px ;
+     }
+    </style>
+ 
+<div style="margin-top: 20px ;" class= "vertical"></div><p style="font-family: 'Times New Roman'; font-weight: bold; font-style: italic; font-size: 13px; margin-left: 10px ; margin-top: -32px ;">Pedagogical choice: teach semantic elements first, not <code>&lt;div&gt;</code>-everywhere. Once semantics are second nature, the rule for div/span becomes simple: div is a generic block container for when no semantic element fits; span is the same for inline content. That produces far better habits than starting from div and retrofitting semantics later.</p>
+
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -35px ; ">
+    <li>Choosing the appropriate semantic element and avoiding unnecessary <code>&lt;div&gt;</code>usage are both direct consequences of that one rule. </li>
+</ul>
+<h1 style="font-size: 20px ; color: #1e58a4; font-family: 'Times New Roman'; margin-left: -35px;">E. Introduction to Web Accessibility </h1>
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -35px ; ">
+    <li><b>What is Web accessibility? </b> — Designing and building sites usable by people with a full range of abilities, including visual, motor, auditory, and cognitive disabilities.</li>
+    <li><b>Why it matters</b> — it's both an ethical baseline and, for many organizations, a legal requirement; and accessible sites are frequently better for everyone (captions help in a noisy room, not just for deaf users).</li>   
+    <li><b>Keyboard accessibility</b> — every interactive element must be reachable and operable using Tab/Shift+Tab/Enter alone, with a visible focus indicator. Semantic elements (button, a) get this for free; a <code>&lt;div oneclick=...&gt;</code> does not. </li>
+    <li><b>Screen readers </b> — software that reads page content aloud, relying heavily on semantic structure and alt text to describe what's on screen. </li>
+    <li><b>Semantic HTML and assistive technology </b> —  this is the payoff of Sections A–D: every semantic choice made above directly determines what a screen reader announces.</li>
+</ul>
+<h1 style="font-size: 20px ; color: #1a62c0; font-family: 'Times New Roman'; margin-left: -35px;">F. Alternative Text</h1>
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -35px ; ">
+    <li><b>Purpose of alt </b> — read aloud by screen readers; shown if the image fails to load. </li>
+    <li><b>Writing meaningful alt text </b> — describe the content or function of the image, not its appearance for its own sake — “Company logo” not “blue swirl graphic.” </li>
+    <li><b>Decorative images </b> — images that carry no information (a background flourish) should use alt="" (empty, not omitted) so screen readers skip them silently.</li>
+    <li><b>Common mistakes </b> — redundant prefixes (“image of…” — the screen reader already announces it's an image), and keyword-stuffed alt text written for search engines instead of users.</li>
+</ul>
+<h1 style="font-size: 20px ; color: #1b549f; font-family: 'Times New Roman'; margin-left: -35px;">G. Forms and Accessibility — Introduction</h1>
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -35px ; ">
+    <li><b> Importance of labels</b>  — an input with no associated label is unusable by screen-reader users — they hear “edit text” with no indication of what to type.</li>
+    <li><b><code>&lt;label&gt;</code> </b> — associates descriptive text with a form control. </li>
+ <div style="font-family: 'Consolas'; font-size: 9px; border: 1px solid black; width: 400px;  background-color: #f0f0f0; padding: 2px;  margin-left  : -35px ;">
+        <pre><code> &lt;label for="email"&gt;Email address&lt;/label&gt;</code></pre>
+            <pre><code> &lt;input id="email" type="email"&gt;</code></pre>
+    </div>
+<li><b>Associating labels with controls </b> — either the for/id pairing above, or by wrapping the input inside the <code>&lt;label&gt;</code> itself: <code>&lt;label&gt;Email &lt;input type="email"&gt;&lt;/label&gt;</code>. </li>
+    </ul>
+    <p style="margin-left : -30px; font-family: 'Times New Roman'; font-size: 13px;">Full form treatment — input types, validation, submission — is Lecture 6's job; this is only the accessibility groundwork.</p>
+<h1 style="font-size: 20px ; color: #145cbb; font-family: 'Times New Roman'; margin-left: -35px;">H. ARIA</h1>
+
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -35px ; ">
+    <li><b>What is ARIA?  </b> Accessible Rich Internet Applications — attributes that supply extra roles, states, and properties for assistive technology when native HTML alone isn't enough.</li>
+    <li><b> Roles  </b> — define an element's purpose (role="tab");</li>
+    <li><b> States </b> — an element's current condition (aria-pressed="true"); </li>
+    <li><b> Properties </b> — descriptive metadata (aria-label="Search the site").</li>
+
+<style >
+    .vertical {
+        border-left: 2px solid black;
+        height: 30px;
+     }
+    </style>
+ 
+<div style="margin-top: 5px ;" class= "vertical"></div><p style="font-family: 'Times New Roman'; font-weight: bold; font-style: italic; font-size: 13px; margin-left: 10px ; margin-top: -30px ;">First rule of ARIA: use native HTML first, ARIA only when necessary. If a semantic element already conveys the meaning, adding ARIA on top is redundant at best.</p>
+<li><b> Common misuse </b> — sprinkling ARIA roles onto elements that already have native semantics, or adding a role without implementing the keyboard behavior that role implies (e.g. role="button" on a <code>&lt;div&gt;</code> with no keyboard handler is worse than a real <code>&lt;button&gt;</code>).</li>
+</ul>
+<p style="font-family: 'Times New Roman'; font-size: 13px; margin-left: -35px ; margin-top: 0px ;">Scope for this course: understand ARIA's purpose and recognize/apply basic roles — not the full specification.</p>
+
+    <div style="  color: #1753a2; font-family: 'Times New Roman'; font-size: 16px;margin-left: -35px ; ">
+    <h1>Lecture 6 — Forms & Modern HTML</h1>
+    <h1 style="font-size: 20px ; color: #1d57a4; font-family: 'Times New Roman';  margin-top: -10px ;"> A. HTML Forms </h1>  
+    </div>
+    <ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -35px ; ">
+        <li><b>Purpose </b>  — the standard way a Web page collects input and sends it somewhere.</li>
+    </ul>
+ <div style="font-family: 'Consolas'; font-size: 9px; border: 1px solid black; width: 594px;  background-color: #f0f0f0; padding: 2px;  margin-left  : -35px ;">
+        <pre><code> &lt;form action="/submit" method="post"&gt;</code></pre>
+               <p  style="margin: 10px;"> ... </p>
+            <pre><code> &lt;/form&gt;</code></pre>
+    </div>
+
+<table style=" width: 600px; border-collapse: collapse; color: #000000; margin-left: -35px; font-family: 'Times New Roman'; font-size: 13px;">
+    <tr>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">Attribute</th>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">Meaning</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">action</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">The URL the form data is sent to.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">method</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">How it's sent — GET or POST (see Section F).</td>
+    </tr>
+</table>
+<p style="font-family: 'Times New Roman'; font-size: 13px; margin-left: -35px ; margin-top: 0px ;">Form controls (input, textarea, select, button) are the individual pieces a form is built from — covered next.</p>
+
+<h1 style="font-size: 20px ; color: #155dbb; font-family: 'Times New Roman';  margin-left: -40px ;"> B. Input Elements</h1>
+<p style="font-family: 'Times New Roman'; font-size: 13px; margin-left: -40px ; margin-top: -10px ;">Every input type shares one element,<code>&lt;input&gt;</code>, distinguished by its type attribute:</p>
+<table style=" width: 600px; border-collapse: collapse; color: #000000; margin-left: -35px; font-family: 'Times New Roman'; font-size: 13px;">
+        <tr>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">type value</th>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">Used for</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">text</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Single-line free text.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">password</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">Text hidden as it's typed.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">email</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Email address, with built-in format validation.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">number</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">Numeric input, often with a stepper.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">tel</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Phone number (no built-in format validation — use pattern).</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">url</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">A web address, with built-in format validation.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">date / time / datetime-local</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Native date and/or time pickers.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">radio</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">One choice from a mutually exclusive set (shared name attribute).</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">checkbox</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">An independent on/off choice.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">file</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">A file upload.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">hidden</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">A value submitted with the form but not shown to the user.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">submit / reset / button</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">Submits the form / resets it to defaults / a plain button with no default action.</td>
+    </tr>
+</table>
+<h1 style="font-size: 20px ; color: #1b68cd; font-family: 'Times New Roman';  margin-left: -40px ;"> C. Other Form Elements</h1>
+<table style=" width: 600px; border-collapse: collapse; color: #000000; margin-left: -35px; font-family: 'Times New Roman'; font-size: 13px;">
+        <tr>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">Element</th>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">Role</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;"><code>&lt;label&gt;</code></td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Single-line free text.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;"><code>&lt;textarea&gt;</code></td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">Text hidden as it's typed.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;"><code>&lt;select&gt;</code>/<code>&lt;option&gt;</code></td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Email address, with built-in format validation.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;"><code>&lt;optgroup&gt;</code></td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">Numeric input, often with a stepper.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;"><code>&lt;button&gt;</code></td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Phone number (no built-in format validation — use pattern).</td>
+    </tr>
+     <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;"><code>&lt;fieldset&gt;</code>/<code>&lt;legend&gt;</code></td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Groups related controls visually and semantically, with a caption — e.g. grouping “Shipping Address” fields together.</td>
+    </tr>
+</table>
+<h1 style="font-size: 20px ; color: #1a5aaf; font-family: 'Times New Roman';  margin-left: -40px ;"> D. Form Attributes</h1>
+<table style=" width: 600px; border-collapse: collapse; color: #000000; margin-left: -35px; font-family: 'Times New Roman'; font-size: 13px;">
+        <tr>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">Attribute</th>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">Effect</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">name</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">The key the value is submitted under — required for a field's data to be sent at all.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">value</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">The control's current or default value.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">placeholder</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Faint hint text shown when empty — not a substitute for a <code>&lt;label&gt;</code>.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">required</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">Blocks submission until filled in.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">disabled</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Greyed out, not editable, and not submitted.</td>
+    </tr>
+     <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">readonly</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Visible and selectable, but not editable; still submitted.</td>
+    </tr>
+        <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">checked / selected</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">Pre-selects a checkbox/radio, or an <code>&lt;option&gt;</code>.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">multiple</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Allows more than one selection (file input or <code>&lt;select&gt;</code>)</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">min / max</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px; ">Numeric or date bounds.</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">minlength / maxlength  </td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Text length bounds.</td>
+    </tr>
+     <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">pattern</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">A regular expression the value must match.</td>
+    </tr>
+</table>
+
+<h1 style="font-size: 20px ; color: #1961bf; font-family: 'Times New Roman';  margin-left: -40px ;"> E. HTML Form Validation</h1>
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -55px ; ">
+        <li><b>	Why validation is required  </b>  — catch obviously bad input (empty required field, malformed email) before it's sent anywhere.</li>
+        <li><b>	Client-side / HTML5 built-in validation </b> — the browser checks required, type="email", numeric constraints (min/max), length constraints (minlength/maxlength), and pattern automatically, with no JavaScript needed, and shows its own native validation messages.</li>
+    
+<style >
+    .vertical {
+        border-left: 2px solid black;
+        height: 40px ;
+     }
+    </style>
+ 
+<div style="margin-top: 15px ;" class= "vertical"></div><p style="font-family: 'Times New Roman'; font-weight: bold; font-style: italic; font-size: 13px; margin-left: 10px ; margin-top: -42px ;">Limitation: client-side validation can be disabled, bypassed, or the request can be sent directly with a tool like curl, entirely skipping the browser. Never trust it as a security boundary.</p>
+<li><b>	Why server-side validation is still required</b> — the server must re-validate everything client-side validation checked, because the client cannot be trusted. This is the direct setup for backend development in Week 8 — flag that connection explicitly to students.</li>
+    </ul>
+<h1 style="font-size: 20px ; color: #1254ab; font-family: 'Times New Roman';  margin-left: -40px ;"> F. Form Submission and HTTP</h1>
+<p style="font-family: 'Times New Roman'; font-size: 13px; margin-left: -40px ; margin-top: -10px ;">This is the lecture's payoff moment — connect Week 2 directly back to Week 1's HTTP model.</p>
+<div style="font-family: 'Consolas'; font-size: 9px; border: 1px solid black; width: 594px;  background-color: #f0f0f0; padding: 2px;  margin-left  : -35px ;">
+        <p style="margin-left: 10px ;">HTML Form </p>
+          <p style="margin-left: 35px ; margin-top: -10px ;"> ↓ </p>
+          <p style="margin-left: 10px  ; margin-top: -10px ;">HTTP Request </p>
+          <p style="margin-left: 35px ; margin-top: -10px ;"> ↓ </p>
+            <p style="margin-left: 20px ; margin-top: -10px ;">Server</p>
+    </div>
+<table style=" width: 600px; border-collapse: collapse; color: #000000; margin-left: -35px; font-family: 'Times New Roman'; font-size: 13px;">
+    <tr>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">Method</th>
+        <th style="background-color: #92acd4;font-weight: bold;text-align: left;padding: 12px 10px;border: 1px solid #000000;">Behavior</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">GET</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Form data is appended to the URL as query parameters — visible, bookmarkable, length-limited. Never use for passwords or sensitive data.</td>
+    </tr>
+     <tr>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">POST</td>
+        <td style="border: 1px solid #000000; text-align: left; padding: 12px 10px;">Form data travels in the request body — not visible in the URL, no practical length limit. Used for anything that changes data or carries sensitive input.</td>
+    </tr>
+</table>
+<p style="font-family: 'Times New Roman'; font-size: 13px; margin-left: -40px  ;">Query parameters and request body were both introduced conceptually in Week 1 (Lecture 2's URL anatomy, and the HTTP request/response structure) — this is where they stop being abstract and become something students actually produce by submitting a form.</p>
+<h1 style="font-size: 20px ; color: #135dbf; font-family: 'Times New Roman';  margin-left: -40px ;"> G. Embedding Multimedia</h1>
+<div style="border: 1px solid #000000 ; width: 600px;  background-color: #f0f0f0;  margin-left: -35px;">
+<pre><code>
+    &lt;audio controls&gt;
+        &lt;source src="song.mp3" type="audio/mpeg"&gt;
+        &lt;source src="song.ogg" type="audio/ogg"&gt;
+    &lt;audio&gt;
+
+    &lt;video width="480" controls poster="preview.jpg"&gt;
+        &lt;source src="clip.mp4" type="video/mp4"&gt;
+        &lt;track src="captions.vtt" kind="captions" srclang="en"&gt;
+    &lt;video&gt;
+</code></pre>
+</div>
+
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -55px ; ">
+        <li><b>	Multiple <code>&lt;source&gt;</code> elements let the browser pick whichever format it supports  </b> a fallback chain, not a single fixed file.</li>
+        <li><b>Controls</b> shows the browser's native play/pause/volume UI; width/height sizes video the same way as images.</li>
+        <li><b>	Captions/subtitles  </b> introduced via <code>&lt;track kind="captions"&gt;</code   >, tying directly back to the accessibility discussion in Lecture 5.</li>
+</ul>
+<h1 style="font-size: 17px ; color: #1757ab; font-family: 'Times New Roman';  margin-left: -40px ;"> Embedded External Content: <code>&lt;iframe&gt;</code></iframe></h1>
+<div style="border: 1px solid #000000 ; width: 600px;  background-color: #f0f0f0;  margin-left: -40px; margin-top: -10px ;">
+    <pre><code>
+  &lt;iframe src="https://maps.example.com/embed" width="600" height="450"&gt;&lt;/iframe&gt;
+    </code></pre>
+</div>
+<p style="font-family: 'Times New Roman'; font-size: 13px; margin-left: -40px  ; margin-top: 5px;">Used for embedding external content wholesale — maps, videos, documents — rather than rebuilding it.</p>
+<style >
+    .vertical {
+        border-left: 2px solid black;
+        height: 45px ;
+     }
+    </style>
+ 
+<div style="margin-top: 10px ; margin-left: -25px ;" class= "vertical"></div><p style="font-family: 'Times New Roman'; font-weight: bold; font-style: italic; font-size: 13px; margin-left: -20px ; margin-top: -45px ;">Basic security consideration: an iframe embeds another site's content directly into yours, which is also the mechanism behind clickjacking attacks (an invisible iframe tricking a user into clicking something they didn't intend to). A sandbox attribute exists to restrict what an embedded frame can do — worth naming, full detail is out of scope for this course.</p>
+<h1 style="font-size: 20px ; color: #1353a7; font-family: 'Times New Roman';  margin-left: -40px ;"> H. Canvas</h1>
+
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -55px ; ">
+    <li><b>What is <code>&lt;canvas&gt;</code>? </b>A blank drawing surface element — it does nothing by itself.</li>
+    <li><b>Canvas vs. normal HTML elements </b> — ordinary elements are declarative markup; canvas is imperative — you draw onto it pixel by pixel using JavaScript, and the browser has no idea what's “on” it beyond a bitmap.</li>
+    <li><b>Canvas + JavaScript </b> — canvas is inert without script; getContext("2d") is the entry point to the Canvas API.</li>
+    <li><b>Use cases </b> — drawings, charts, games, data visualizations — anywhere pixel-level control matters more than DOM structure.</li>
+</ul>
+<style >
+    .vertical {
+        border-left: 2px solid black;
+        height: 33px ;
+     }
+    </style>
+ 
+<div style="margin-top: 10px ; margin-left: -25px ;" class= "vertical"></div><p style="font-family: 'Times New Roman'; font-weight: bold; font-style: italic; font-size: 13px; margin-left: -20px ; margin-top: -33px ;">No detailed Canvas programming in this lecture — overview and recognition only. Students should know what it's for and reach for it later if a project needs it.</p>
+
+<h1 style="font-size: 20px ; color: #175eb9; font-family: 'Times New Roman';  margin-left: -40px ;">I. SVG</h1>
+
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -55px ; ">
+    <li><b>What is SVG? </b>Scalable Vector Graphics — an XML-based format that defines shapes mathematically rather than as pixels.</li>
+    <li><b>Vector vs. raster </b> — vector graphics (SVG) scale to any size with no quality loss; raster images (JPEG, PNG, canvas output) are fixed-resolution pixel grids that blur or pixelate when scaled up.</li>
+    <li><b>SVG in HTML </b> — can be embedded inline (<code>&lt;svg&gt;...&lt;/svg&gt;</code> directly in the markup) or linked as an external .svg file, same as an image.</li>
+    <li><b>Basic SVG elements </b> — <code>&lt;svg&gt;</code>, <code>&lt;circle&gt;</code>, <code>&lt;rect&gt;</code>, <code>&lt;path&gt;</code> — named for recognition only, not authored by hand in this course.</li>
+    <li><b>SVG vs. Canvas </b> — SVG shapes remain individual, addressable DOM elements (can be styled with CSS, targeted with JavaScript, and stay crisp at any zoom level); canvas output is just pixels with no memory of how it got there.</li>
+    <li><b>Typical uses </b> — icons, diagrams, charts, logos — anywhere scalability and crispness matter more than pixel-level drawing control.</li>
+    
+</ul>
+<p style="font-family: 'Times New Roman'; font-size: 13px; margin-left: -35px ; margin-top: 5px ;">Overview only, same as Canvas — no hand-authoring of SVG paths in this course.</p>
+
+<h1 style="font-size: 20px ; color: #1a59ac; font-family: 'Times New Roman';  margin-left: -40px ;">Tutorial — HTML Structure of the Semester Project</h1>
+<p style="font-family: 'Times New Roman'; font-size: 13px; margin-left: -38px ; margin-top: -5px ;">Brings together everything from Lectures 4–6. Students work through this sequence for their own project:</p>
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -55px ; ">
+    <li>Identify the project's major pages (e.g. Home, About, Login, Registration, Dashboard) </li>
+    <li>Identify elements common to every page (header, nav, footer).</li>
+    <li>Identify the navigation structure.</li>
+    <li>Identify each page's main content area.</li>
+    <li>Identify sections and articles within that content.</li>
+    <li>Identify where forms are needed.</li>
+    <li>Identify where tables or lists are appropriate.</li>
+    <li>Identify images and media to include.</li>
+    <li>Decide the semantic HTML element for each region — not “which div.”</li>
+    <li>Consider accessibility for each page while designing it, not after.</li>
+    <li>Produce a basic site map.</li>
+    <li>Produce the HTML skeleton for at least one page.</li>
+</ul>
+<p style="font-family: 'Times New Roman'; font-size: 15px; margin-left: -35px ; margin-top: 5px ;">Example site map:</p>
+
+<div style="border: 1px solid #000000 ; width: 450px;  background-color: #f0f0f0;  margin-left: -35px; margin-top: -10px;">
+    <p style="margin-left: 10px;">Project</p>
+    <p style="margin-top: -15px; margin-left: 10px;">│</p>
+    <p style="margin-top: -13px; margin-left: 10px;">├── Home</p>
+    <p style="margin-top: -13px; margin-left: 10px;">├── About</p>
+    <p style="margin-top: -13px; margin-left: 10px;">├── Login</p>
+    <p style="margin-top: -13px; margin-left: 10px;">├── Registration</p>
+    <p style="margin-top: -13px; margin-left: 10px;">├── Dashboard</p>
+    <p style="margin-top: -13px; margin-left: 10px;">│</p>
+    <p style="margin-top: -13px; margin-left: 10px;">└── Other functional pages</p>
+</div>
+<p style="font-family: 'Times New Roman'; font-size: 15px; margin-left: -35px ; margin-top: 5px ;">Example per-page skeleton:</p>
+<div style="border: 1px solid #000000 ; width: 450px;  background-color: #f0f0f0;  margin-left: -35px; margin-top: -10px;">
+<pre><code>  &lt;header&gt;
+  &lt;nav&gt;
+ 
+  &lt;main&gt;
+    &lt;section&gt;
+        &lt;article&gt;
+        ...
+        &lt;/article&gt;
+    &lt;/section&gt;
+   &lt;/main&gt;
+
+  &lt;footer&gt;
+</code></pre> 
+</div>
+<h1 style="font-size: 22px ; color: #15509e; font-family: 'Times New Roman';  margin-left: -40px ;">Lab — Semantic, Accessible Multi-Page Website</h1>
+<h2 style="font-size: 18px ; color: #1d5eb3; font-family: 'Times New Roman';  margin-left: -40px ;">Part 1 — Project Structure </h2>
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -55px ; ">
+    <li>Create the project directory.</li>
+    <li>Organize HTML files.</li>
+    <li>Organize images/assets into their own folder (per Week 1's folder-structure convention).</li>
+    <li>Create navigation between pages.</li>
+</ul>
+<h2 style="font-size: 18px ; color: #164c93; font-family: 'Times New Roman';  margin-left: -40px ;">Part 2 — HTML</h2>
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -55px ; ">
+    <li>Build the semantic page structure for each page.</li>
+    <li>Add headings and text content.</li>
+    <li>Add links between pages.</li>
+    <li>Add lists where appropriate.</li>
+    <li>Add tables where appropriate.</li>
+</ul>
+<h2 style="font-size: 18px ; color: #1754a4; font-family: 'Times New Roman';  margin-left: -40px ;">Part 3 — Forms </h2>
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -55px ; ">
+    <li>Create the project's forms.</li>
+    <li>Use appropriate input types for each field.</li>
+    <li>Add labels to every control.</li>
+    <li>Add HTML5 validation attributes.</li>
+    <li>Use required, pattern, and similar constraints deliberately, not by default.</li>
+    <li>Test that the form actually submits.</li>
+
+</ul>
+<h2 style="font-size: 18px ; color: #1b56a2; font-family: 'Times New Roman';  margin-left: -40px ;">Part 4 — Accessibility </h2>
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -55px ; ">
+    <li>Add meaningful alt text to every image.	</li>
+    <li>Check heading hierarchy — no skipped levels.</li>
+    <li>Ensure every form control has an associated label.</li>
+    <li>Test keyboard navigation — Tab through the whole page.</li>
+    <li>Inspect the semantic structure in DevTools and confirm it matches the intended hierarchy.</li>
+</ul>
+<h2 style="font-size: 18px ; color: #195fb9; font-family: 'Times New Roman';  margin-left: -40px ;">Part 5 — HTML Validation & Testing</h2>
+<ul style=" font-size: 13px; font-family: 'Times New Roman'; margin-left: -55px ; ">
+    <li>Inspect the HTML using browser DevTools.</li>
+    <li>Run the pages through the W3C HTML Validator (Week 1's tutorial).</li>
+    <li>Test every link.</li>
+    <li>Test every form.</li>
+    <li>Test every page individually before considering the lab complete.</li>
+</ul>
+</body>
+</html>
